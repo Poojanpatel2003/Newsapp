@@ -3,7 +3,7 @@ import './App.css';
 
 import React, { Component } from 'react'
 import News from './components/News';
-import{ Routes,BrowserRouter,  Route} from 'react-router-dom';
+import{ Routes,BrowserRouter,  Route,Navigate} from 'react-router-dom';
 export default class App extends Component {
   render() {
     return (
@@ -12,7 +12,8 @@ export default class App extends Component {
        <Navbar/>
        
        <Routes>
-          <Route  exact path="/" element={<News key="My-news" pageSize={6} country="in" category="general"/>}></Route>
+          <Route  exact path="/My-news" element={<News key="My-news" pageSize={6} country="in" category="general"/>}></Route>
+          <Route path="/" element={<Navigate to="/My-news" />} />
           <Route exact path="/business" element={<News key="business" pageSize={6} country="in" category="business"/>}></Route>
           <Route exact path="/entertainment" element={<News key="entertainment" pageSize={6} country="in" category="entertainment"/>}></Route>
           <Route exact path="/general" element={<News key="general" pageSize={6} country="in" category="general"/>}></Route>
